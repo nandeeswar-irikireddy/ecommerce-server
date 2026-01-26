@@ -1,7 +1,7 @@
-import app from "./app"
 import {configDotenv} from "dotenv"
-
 configDotenv()
+
+import app from "./app"
 
 const port = process.env.PORT || 3000;
 
