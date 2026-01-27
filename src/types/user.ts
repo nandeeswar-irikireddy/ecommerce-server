@@ -12,4 +12,5 @@ export interface DBUserRow {
     email: string;
     email_verified: boolean;
     created_at: Date;
+    password_hash: string;
 }

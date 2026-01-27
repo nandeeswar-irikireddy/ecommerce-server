@@ -8,3 +8,12 @@ const JWT_SECRET = process.env.JWT_SECRET
 export async function hashPassword(password: string): Promise<string> {
     return bcrypt.hash(password, SALT_ROUNDS)
 }
+
+export function signJwtoken(user: User) {
+    return jwt.sign({
+        id: user.id,
+        email: user.email
+    },
+    JWT_SECRET as string, 
+    {expiresIn: '7d'})
+}
