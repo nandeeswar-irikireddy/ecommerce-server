@@ -12,9 +12,9 @@ export async function createUser(userName: string, email: string, password: stri
         await client.query("BEGIN")
 
         const userResult = await client.query<DBUserRow>(`
-            INSERT INTO USERS (user_name, email, password_hash)
+            INSERT INTO USERS (name, email, password_hash)
             VALUES($1, $2, $3)
-            RETURNING id, user_name, email, email_verified, created_at
+            RETURNING id, name, email, email_verified, created_at
         `,[userName, email, hashedPassword])
 
         await client.query("COMMIT")
