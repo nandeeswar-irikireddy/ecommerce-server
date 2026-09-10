@@ -15,7 +15,8 @@
     "start": "node dist/server.js",
     "dev": "nodemon --exec ts-node src/server.ts",
     "migrate:up": "node-pg-migrate -m 'dist/migrations' up",
-    "migrate:create": "node-pg-migrate --migration-file-language ts create"
+    "migrate:create": "node-pg-migrate --migration-file-language ts create",
+    "db:seed": "tsx src/seed.ts"
   },
   "keywords": [],
   "author": "",
@@ -31,6 +32,7 @@
     "node-pg-migrate": "^8.0.4",
     "nodemon": "^3.1.11",
     "ts-node": "^10.9.2",
+    "tsx": "^4.23.13",
     "typescript": "^5.9.3"
   }
 }

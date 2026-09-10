@@ -6,6 +6,11 @@ export async function up(pgm: MigrationBuilder): Promise<void> {
             type: 'serial',
             primaryKey: true,
         },
+        sku: {
+            type: 'varchar(100)',
+            notNull: true,
+            unique: true
+        },
         product_id: {
             type: 'integer',
             notNull: true,
@@ -15,6 +20,16 @@ export async function up(pgm: MigrationBuilder): Promise<void> {
         price: {
             type: 'numeric(10,2)',
             notNull: true,
-        }
+        },
+        created_at: {
+            type: 'timestamp',
+            notNull: true,
+            default: pgm.func('current_timestamp'),
+        },
+        updated_at: {
+            type: 'timestamp',
+            notNull: true,
+            default: pgm.func('current_timestamp'),
+        },
     })
 }
